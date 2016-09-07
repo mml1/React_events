@@ -21,6 +21,11 @@ var EventApplication = React.createClass({
 		//when I did not have this, the handleSearch in the component was undefined
 		this.setState({events:events});
 	},
+	handleAdd: function(event){
+		var events = this.state.events;
+		events.push(event);
+		this.setState({events:events});
+	},
 	render: function(){
 		return(
 			<div className = "container">
@@ -30,6 +35,9 @@ var EventApplication = React.createClass({
 				<div className = "row">
 					<div className = "col-sm-3">
 						<SearchForm handleSearch = {this.handleSearch} />
+					</div>
+					<div className = "col-sm-9">
+						<NewForm handleAdd = {this.handleAdd} />
 					</div>
 				</div>
 				<div className = "row">
